@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Rth by Rth-org</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Rth</h1>
+        <p>Parallel R through Thrust</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/Rth-org" class="button fork"><strong>View On GitHub</strong></a>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h3>
+<a name="what-is-this" class="anchor" href="#what-is-this"><span class="octicon octicon-link"></span></a>What is this?</h3>
+
+<p>Rth is a package of functions written in Thrust, callable from R. It thus 
+provides to R programmers a set of parallel applications that run on both GPUs 
+and multicore systems</p>
+
+<p>Thrust is a C++ package for parallel processing. It was originally designed as 
+a high-level approach to GPU programming, but actually can be compiled to 
+multiple backends--GPUs (CUDA) and multicore (OpenMP, TBB). This ability to 
+have the same parallel code run on both GPU and multicore systems is extremely 
+valuable. (You need not have a GPU to run the multicore backends.) </p>
+
+<p>Operations are high-level, such as sorting, selecting, searching and prefix 
+scan. From these basic building blocks, a myriad of parallel applications can 
+be coded.</p>
+
+<p>For example, consider Rth's rthorder(), which (in one of its options) serves as 
+a parallel version of R's rank(). It first calls Thrust's sort_by_key() 
+function, and then uses Thrust's scatter() function to permute the results in a 
+way that produces the proper ranks.</p>
+
+<p>R programmers can use Rth without knowing C++, Thrust, OpenMP or CUDA! But those 
+who do know C++/Thrust can easily develop their own apps using the Rth approach.</p>
+
+<h3>
+<a name="pretty-good-parallelism" class="anchor" href="#pretty-good-parallelism"><span class="octicon octicon-link"></span></a>Pretty Good Parallelism</h3>
+
+<p>The Pretty Good Privacy package (PGP) gave the world encryption which, though 
+not optimal, was simple to use and readily available. With Rth, the idea is to 
+have PGP mean "pretty good parallelism"--not necessarily optimal, but easy to 
+develop and with the key virtue that the same code gives reasonably good 
+performance on both GPUs and multicore.</p>
+
+<h3>
+<a name="platform-requirements" class="anchor" href="#platform-requirements"><span class="octicon octicon-link"></span></a>Platform requirements</h3>
+
+<p>To build the package, you will need to have the correct build environment set
+up.  Exactly what that means depends on whether you wish to build rth for use
+with a gpu or multicore.</p>
+
+<p>If you have a CUDA-capable NVIDIA GPU, you will need the nvcc compiler and CUDA 
+development package.</p>
+
+<p>For the multicore case, you will need a C++ compiler with an OpenMP library 
+(this excludes clang++ at the time of writing).  GNU g++ should be sufficient.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
